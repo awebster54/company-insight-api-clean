@@ -1,0 +1,8 @@
+{
+  "name": "company-insight-api-clean",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "node api/company-insight.js"
+  },
+  "dependencies": {}
+}
