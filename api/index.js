@@ -1,6 +1,12 @@
-// api/company-insight.js
+// api/index.js
 
-export default (req, res) => {
+const express = require("express");
+const cors = require("cors");
+const app = express();
+
+app.use(cors());
+
+app.get("/api/company-insight", (req, res) => {
     const companyData = {
         Amazon: {
             competitors: ["Walmart", "Alibaba", "Target", "eBay", "Shopify"],
@@ -18,5 +24,8 @@ export default (req, res) => {
 
     const { name } = req.query;
     const data = companyData[name] || { error: `No data available for company: ${name}` };
-    res.status(200).json(data);
-};
+    res.json(data);
+});
+
+// Export the app for Vercel
+module.exports = app;
